@@ -10,6 +10,7 @@
             background-color: #f4f9ff;
             margin: 0;
             padding: 0;
+            line-height: 1.6; /* Додано для кращої читабельності на мобільних */
         }
 
         header {
@@ -18,7 +19,7 @@
             color: white;
             padding: 2rem;
             margin-bottom: 2rem;
-            background-image: url('ukrainian-pattern.png'); /* Додати візерунок */
+            background-image: url('ukrainian-pattern.png');
             background-repeat: no-repeat;
             background-position: top left;
             background-size: 20%;
@@ -35,16 +36,20 @@
             font-style: italic;
         }
 
+        #introduction, #alphabet, #soft-sign-note, #phrases, #exercises {
+            padding: 1.5rem; /* Зменшено відступи для менших екранів */
+            margin-bottom: 1.5rem; /* Зменшено відступи для менших екранів */
+            border-radius: 8px; /* Трохи менший радіус */
+        }
+
         #introduction {
-            padding: 2rem;
             text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1.05rem; /* Трохи менший шрифт */
         }
 
         #alphabet h2 {
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.8rem; /* Трохи менший шрифт */
             color: #2c3e50;
             margin-bottom: 1rem;
         }
@@ -53,10 +58,11 @@
             width: 100%;
             margin: 0 auto;
             border-collapse: collapse;
+            font-size: 0.9rem; /* Трохи менший шрифт для таблиці */
         }
 
         th, td {
-            padding: 1rem;
+            padding: 0.75rem; /* Зменшено відступи в таблиці */
             text-align: center;
             border: 1px solid #dcdcdc;
         }
@@ -76,38 +82,23 @@
 
         #soft-sign-note {
             background-color: #ecf0f1;
-            padding: 2rem;
+            padding: 1.5rem; /* Зменшено відступи */
             border-left: 5px solid #3498db;
-            margin: 2rem 0;
+            margin: 1.5rem 0; /* Зменшено відступи */
         }
 
-        #soft-sign-note p {
-            font-size: 1.2rem;
+        #soft-sign-note p, #phrases p, #exercises p {
+            font-size: 1.1rem; /* Трохи менший шрифт */
             line-height: 1.6;
-        }
-
-        #phrases p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin: 0.5rem 0;
-        }
-
-        #exercises {
-            padding: 2rem;
-            background-color: #ffffff;
-        }
-
-        #exercises p {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
+            margin: 0.4rem 0; /* Зменшено відступи */
         }
 
         /* Стилі для вправи 1 (перетягування ліній) */
         .match-container {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
-            width: 80%;
+            flex-direction: column; /* Змінено на вертикальне розташування на малих екранах */
+            align-items: center; /* Вирівнювання по центру */
+            width: 95%; /* Займає більшу частину ширини на малих екранах */
             margin: 1rem auto;
             padding: 1rem;
             border: 1px solid #dcdcdc;
@@ -118,6 +109,7 @@
         .match-column {
             flex: 1;
             padding: 1rem;
+            width: 100%; /* Кожна колонка займає всю ширину на малих екранах */
         }
 
         .match-column h3 {
@@ -127,7 +119,7 @@
         }
 
         .match-item {
-            padding: 0.5rem;
+            padding: 0.75rem; /* Трохи більші відступи для зручності торкання */
             margin-bottom: 0.5rem;
             border: 1px solid #bdc3c7;
             border-radius: 5px;
@@ -136,22 +128,18 @@
             cursor: grab;
         }
 
-        .match-item:active {
-            cursor: grabbing;
-        }
-
         #match-canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Щоб події миші проходили крізь канвас до елементів */
+            pointer-events: none;
         }
 
         /* Стилі для вправи 2 (перетягування слів) */
         .fill-blanks-container {
-            width: 80%;
+            width: 95%; /* Займає більшу частину ширини на малих екранах */
             margin: 1rem auto;
             padding: 1rem;
             border: 1px solid #dcdcdc;
@@ -162,32 +150,29 @@
         .fill-blanks-words {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.4rem; /* Трохи менший відступ */
             margin-bottom: 1rem;
             justify-content: center;
         }
 
         .fill-blanks-word {
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 0.8rem; /* Трохи менші відступи */
             border: 1px solid #bdc3c7;
             border-radius: 5px;
             background-color: #ffffff;
             cursor: grab;
-        }
-
-        .fill-blanks-word:active {
-            cursor: grabbing;
+            font-size: 0.95rem; /* Трохи менший шрифт */
         }
 
         .fill-blanks-sentence {
-            font-size: 1.1rem;
+            font-size: 1.05rem; /* Трохи менший шрифт */
             margin-bottom: 0.5rem;
             text-align: center;
         }
 
         .fill-blanks-placeholder {
             display: inline-block;
-            min-width: 80px;
+            min-width: 60px; /* Трохи менша мінімальна ширина */
             padding: 0.3rem;
             border-bottom: 1px dashed #3498db;
             text-align: center;
@@ -199,38 +184,94 @@
             font-weight: bold;
         }
 
-        /* Академічно-етнічний дизайн */
-        section {
-            padding: 2rem;
-            background-color: #ecf0f1;
-            margin-bottom: 2rem;
-            border-radius: 10px;
+        /* Медіа-запити для адаптивності */
+        @media (min-width: 768px) {
+            /* Стилі для екранів середнього розміру та більше (наприклад, планшети) */
+            header {
+                padding: 3rem;
+                background-size: 15%; /* Трохи менший візерунок на більших екранах */
+            }
+
+            header h1 {
+                font-size: 3.5rem;
+            }
+
+            header p {
+                font-size: 1.3rem;
+            }
+
+            #introduction, #alphabet, #soft-sign-note, #phrases, #exercises {
+                padding: 2rem;
+                margin-bottom: 2rem;
+                border-radius: 10px;
+            }
+
+            #introduction {
+                font-size: 1.1rem;
+            }
+
+            #alphabet h2 {
+                font-size: 2rem;
+            }
+
+            table {
+                font-size: 1rem;
+            }
+
+            th, td {
+                padding: 1rem;
+            }
+
+            #soft-sign-note p, #phrases p, #exercises p {
+                font-size: 1.2rem;
+                margin: 0.5rem 0;
+            }
+
+            .match-container {
+                flex-direction: row; /* Повертаємо горизонтальне розташування */
+                justify-content: space-around;
+                width: 80%;
+            }
+
+            .match-column {
+                width: auto; /* Автоматична ширина колонок */
+            }
+
+            .fill-blanks-container {
+                width: 80%;
+            }
+
+            .fill-blanks-words {
+                gap: 0.5rem;
+            }
+
+            .fill-blanks-word {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+
+            .fill-blanks-sentence {
+                font-size: 1.1rem;
+            }
+
+            .fill-blanks-placeholder {
+                min-width: 80px;
+            }
         }
 
-        section p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #2c3e50;
-        }
+        @media (min-width: 1200px) {
+            /* Стилі для великих екранів (наприклад, десктопи) */
+            header {
+                background-size: 10%; /* Ще менший візерунок на дуже великих екранах */
+            }
 
-        /* Загальні відступи */
-        h2, p {
-            margin: 0.5rem 0;
-        }
+            header h1 {
+                font-size: 4rem;
+            }
 
-        /* Кольори */
-        .accent-color {
-            color: #3498db;
-        }
-
-        .highlight {
-            background-color: #f1c40f;
-            font-weight: bold;
-        }
-
-        .incorrect-drop {
-            background-color: #ffebee; /* Світло-червоний колір */
-            transition: top 0.3s ease-in-out, left 0.3s ease-in-out; /* Плавна анімація повернення */
+            header p {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
