@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Ukrainian: A Simple Guide for Beginners</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f9ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-image: url('ukrainian-pattern.png'); /* Додати візерунок */
+            background-repeat: no-repeat;
+            background-position: top left;
+            background-size: 20%;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-family: 'Georgia', serif;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        #introduction {
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        #alphabet h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #dcdcdc;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        #soft-sign-note {
+            background-color: #ecf0f1;
+            padding: 2rem;
+            border-left: 5px solid #3498db;
+            margin: 2rem 0;
+        }
+
+        #soft-sign-note p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        #phrases p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        #exercises {
+            padding: 2rem;
+            background-color: #ffffff;
+        }
+
+        #exercises p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Стилі для вправи 1 (перетягування ліній) */
+        .match-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+            margin: 1rem auto;
+            padding: 1rem;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .match-column {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .match-column h3 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .match-item {
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            background-color: #ffffff;
+            text-align: center;
+            cursor: grab;
+        }
+
+        .match-item:active {
+            cursor: grabbing;
+        }
+
+        #match-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Щоб події миші проходили крізь канвас до елементів */
+        }
+
+        /* Стилі для вправи 2 (перетягування слів) */
+        .fill-blanks-container {
+            width: 80%;
+            margin: 1rem auto;
+            padding: 1rem;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .fill-blanks-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+        .fill-blanks-word {
+            padding: 0.5rem 1rem;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            background-color: #ffffff;
+            cursor: grab;
+        }
+
+        .fill-blanks-word:active {
+            cursor: grabbing;
+        }
+
+        .fill-blanks-sentence {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .fill-blanks-placeholder {
+            display: inline-block;
+            min-width: 80px;
+            padding: 0.3rem;
+            border-bottom: 1px dashed #3498db;
+            text-align: center;
+            margin: 0 0.2rem;
+        }
+
+        .fill-blanks-placeholder.filled {
+            border-bottom: none;
+            font-weight: bold;
+        }
+
+        /* Академічно-етнічний дизайн */
+        section {
+            padding: 2rem;
+            background-color: #ecf0f1;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        /* Загальні відступи */
+        h2, p {
+            margin: 0.5rem 0;
+        }
+
+        /* Кольори */
+        .accent-color {
+            color: #3498db;
+        }
+
+        .highlight {
+            background-color: #f1c40f;
+            font-weight: bold;
+        }
+
+        .incorrect-drop {
+            background-color: #ffebee; /* Світло-червоний колір */
+            transition: top 0.3s ease-in-out, left 0.3s ease-in-out; /* Плавна анімація повернення */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Learn Ukrainian: A Simple Guide for Beginners</h1>
+        <p>Alphabet · Basic Words · Exercises</p>
+        <p>Welcome to your first steps in learning the Ukrainian language!</p>
+    </header>
+
+    <section id="introduction">
+        <p>
+            In this guide, you will find the Ukrainian alphabet, pronunciation tips,
+            essential vocabulary, and beginner exercises.
+        </p>
+        <p>
+            It’s designed for absolute beginners who want to get familiar with
+            Ukrainian sounds, letters, and everyday words.
+        </p>
+    </section>
+
+    <section id="alphabet">
+        <h2>Welcome to the Ukrainian: The Alphabet as Your First Step</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ukrainian Letter</th>
+                    <th>Latin Transliteration</th>
+                    <th>Pronunciation (English / Portuguese)</th>
+                    <th>Example (Ukrainian)</th>
+                    <th>Translation (English)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="match-ua-1" class="match-item">
+                    <td>А</td>
+                    <td>a</td>
+                    <td>like a in car</td>
+                    <td>мама</td>
+                    <td>mom</td>
+                </tr>
+                <tr id="match-ua-2" class="match-item">
+                    <td>Б</td>
+                    <td>b</td>
+                    <td>like b in baby</td>
+                    <td>баба</td>
+                    <td>grandma</td>
+                </tr>
+                <tr id="match-ua-3" class="match-item">
+                    <td>В</td>
+                    <td>v</td>
+                    <td>like v in voice</td>
+                    <td>вино</td>
+                    <td>wine</td>
+                </tr>
+                <tr id="match-ua-4" class="match-item">
+                    <td>Г</td>
+                    <td>h</td>
+                    <td>like h in hello</td>
+                    <td>гора</td>
+                    <td>mountain</td>
+                </tr>
+                <tr id="match-ua-5" class="match-item">
+                    <td>Ґ</td>
+                    <td>g</td>
+                    <td>like g in go</td>
+                    <td>ґанок</td>
+                    <td>porch</td>
+                </tr>
+                <tr id="match-ua-6" class="match-item">
+                    <td>Д</td>
+                    <td>d</td>
+                    <td>like d in dog</td>
+                    <td>день</td>
+                    <td>day</td>
+                </tr>
+                <tr id="match-ua-7" class="match-item">
+                    <td>Е</td>
+                    <td>e</td>
+                    <td>like e in net</td>
+                    <td>тест</td>
+                    <td>test</td>
+                </tr>
+                <tr id="match-ua-8" class="match-item">
+                    <td>Є</td>
+                    <td>ye</td>
+                    <td>like ye in yes</td>
+                    <td>єнот</td>
+                    <td>raccoon</td>
+                </tr>
+                <tr id="match-ua-9" class="match-item">
+                    <td>Ж</td>
+                    <td>zh</td>
+                    <td>like s in measure</td>
+                    <td>жук</td>
+                    <td>beetle</td>
+                </tr>
+                <tr id="match-ua-10" class="match-item">
+                    <td>З</td>
+                    <td>z</td>
+                    <td>like z in zoo</td>
+                    <td>зима</td>
+                    <td>winter</td>
+                </tr>
+                <tr id="match-ua-11" class="match-item">
+                    <td>И</td>
+                    <td>y / i</td>
+                    <td>"similar to i in bit , but pronounced deeper in the throat"</td>
+                    <td>син</td>
+                    <td>son</td>
+                </tr>
+                <tr id="match-ua-12" class="match-item">
+                    <td>І</td>
+                    <td>i</td>
+                    <td>like ee un see</td>
+                    <td>літо</td>
+                    <td>summer</td>
+                </tr>
+                <tr id="match-ua-13" class="match-item">
+                    <td>Ї</td>
+                    <td>yi</td>
+                    <td>like yi in yield</td>
+                    <td>їсти</td>
+                    <td>to eat</td>
+                </tr>
+                <tr id="match-ua-14" class="match-item">
+                    <td>Й</td>
+                    <td>y</td>
+                    <td>like y in yes</td>
+                    <td>йога</td>
+                    <td>yoga</td>
+                </tr>
+                <tr id="match-ua-15" class="match-item">
+                    <td>К</td>
+                    <td>k</td>
+                    <td>like k in kite</td>
+                    <td>кіт</td>
+                    <td>cat</td>
+                </tr>
+                <tr id="match-ua-16" class="match-item">
+                    <td>Л</td>
+                    <td>l</td>
+                    <td>like l in love</td>
+                    <td>ліс</td>
+                    <td>forest</td>
+                </tr>
+                <tr id="match-ua-17" class="match-item">
+                    <td>М</td>
+                    <td>m</td>
+                    <td>like m in man</td>
+                    <td>місто</td>
+                    <td>city</td>
+                </tr>
+                <tr id="match-ua-18" class="match-item">
+                    <td>Н</td>
+                    <td>n</td>
+                    <td>like n in no</td>
+                    <td>ніч</td>
+                    <td>night</td>
+                </tr>
+                <tr id="match-ua-19" class="match-item">
+                    <td>О</td>
+                    <td>o</td>
+                    <td>like o in not</td>
+                    <td>око</td>
+                    <td>eye</td>
+                </tr>
+                <tr id="match-ua-20" class="match-item">
+                    <td>П</td>
+                    <td>p</td>
+                    <td>like p in pen</td>
+                    <td>поле</td>
+                    <td>field</td>
+                </tr>
+                <tr id="match-ua-21" class="match-item">
+                    <td>Р</td>
+                    <td>r</td>
+                    <td>like r in red (rolled)</td>
+                    <td>рік</td>
+                    <td>year</td>
+                </tr>
+                <tr id="match-ua-22" class="match-item">
+                    <td>С</td>
+                    <td>s</td>
+                    <td>like s in sun</td>
+                    <td>сонце</td>
+                    <td>sun</td>
+                </tr>
+                <tr id="match-ua-23" class="match-item">
+                    <td>Т</td>
+                    <td>t</td>
+                    <td>like t in top</td>
+                    <td>тато</td>
+                    <td>dad</td>
+                </tr>
+                <tr id="match-ua-24" class="match-item">
+                    <td>У</td>
+                    <td>u</td>
+                    <td>like u in rude or tatU</td>
+                    <td>рука</td>
+                    <td>hand</td>
+                </tr>
+                <tr id="match-ua-25" class="match-item">
+                    <td>Ф</td>
+                    <td>f</td>
+                    <td>like f in fun</td>
+                    <td>фільм</td>
+                    <td>film</td>
+                </tr>
+                <tr id="match-ua-26" class="match-item">
+                    <td>Х</td>
+                    <td>kh</td>
+                    <td>similar to j in José (Portuguese)</td>
+                    <td>хліб</td>
+                    <td>bread</td>
+                </tr>
+                <tr id="match-ua-27" class="match-item">
+                    <td>Ц</td>
+                    <td>ts</td>
+                    <td>similar to ce in Cebola (Portuguese)</td>
+                    <td>цукор</td>
+                    <td>sugar</td>
+                </tr>
+                <tr id="match-ua-28" class="match-item">
+                    <td>Ч</td>
+                    <td>ch</td>
+                    <td>like ch in cheese</td>
+                    <td>чай</td>
+                    <td>tea</td>
+                </tr>
+                <tr id="match-ua-29" class="match-item">
+                    <td>Ш</td>
+                    <td>sh</td>
+                    <td>like sh in shop</td>
+                    <td>школа</td>
+                    <td>school</td>
+                </tr>
+                <tr id="match-ua-30" class="match-item">
+                    <td>Щ</td>
+                    <td>shch</td>
+                    <td>
+                        like sh and ch in fresh cheese when said quickly - freshcheese
+                    </td>
+                    <td>ще</td>
+                    <td>still / more</td>
+                </tr>
+                <tr id="match-ua-31" class="match-item">
+                    <td>Ю</td>
+                    <td>yu</td>
+                    <td>just litery you</td>
+                    <td>юнак</td>
+                    <td>young man</td>
+                </tr>
+                <tr id="match-ua-32" class="match-item">
+                    <td>Я</td>
+                    <td>ya</td>
+                    <td>like ya in yard</td>
+                    <td>яблуко</td>
+                    <td>apple</td>
+                </tr>
+                <tr id="match-ua-33" class="match-item">
+                    <td>Ь</td>
+                    <td>‘ (soft sing)</td>
+                    <td>
+                        NO sound. Softens preceding consonant -,no direct equivalent
+                    </td>
+                    <td>день сіль кінь вогонь</td>
+                    <td>day salt horse fire</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="soft-sign-note">
+        <p><strong>Important</strong></p>
+        <p>Additional explanation for Ь (Soft Sign):</p>
+        <p>
+            The soft sign (Ь) has no direct equivalent in English or Portuguese.
+            It’s not pronounced on its own but indicates that the preceding
+            consonant should be softened. Think of it as a signal to make the
+            previous sound gentler. For example, in Ukrainian words like м’ята
+            (mint) or сіль (salt), the letters м or с are pronounced more softly
+            than usual.
+        </p>
+    </section>
+
+    <section id="phrases">
+        <p>Simple Phrases</p>
+        <p>Привіт! – Hello!</p>
+        <p>Як справи? – How are you?</p>
+        <p>Мене звати… – My name is…</p>
+        <p>Дякую – Thank you</p>
+        <p>Будь ласка – Please / You’re welcome</p>
+        <p>Так / Ні – Yes / No</p>
+        <p>Я з Бразилії – I’m from Brazil</p>
+        <p>До побачення!</p>
+        <p>– Goodbye!</p>
+        <p>Вибачте. – Excuse me / Sorry.</p>
+        <p>Я люблю тебе. – I love you.</p>
+    </section>
+
+    <section id="exercises">
+        <p>
+            <strong>Ex 1. Match the Ukrainian to the English.</strong> Drag a line from the Ukrainian word/phrase to its corresponding English translation.
+        </p>
+
+
+        <div class="match-container">
+            <div class="match-column">
+                <h3>Ukrainian</h3>
+                <div id="ua-1" class="match-item draggable-ua" draggable="true" data-target="en-k">Привіт!</div>
+                <div id="ua-2" class="match-item draggable-ua" draggable="true" data-target="en-e">Як справи?</div>
+                <div id="ua-3" class="match-item draggable-ua" draggable="true" data-target="en-l">Мене звати…</div>
+                <div id="ua-4" class="match-item draggable-ua" draggable="true" data-target="en-b">Дякую</div>
+                <div id="ua-5" class="match-item draggable-ua" draggable="true" data-target="en-f">Будь ласка</div>
+                <div id="ua-6" class="match-item draggable-ua" draggable="true" data-target="en-d">Так</div>
+                <div id="ua-7" class="match-item draggable-ua" draggable="true" data-target="en-g">Ні</div>
+                <div id="ua-8" class="match-item draggable-ua" draggable="true" data-target="en-h">Я з Бразилії</div>
+                <div id="ua-9" class="match-item draggable-ua" draggable="true" data-target="en-a">До побачення!</div>
+                <div id="ua-10" class="match-item draggable-ua" draggable="true" data-target="en-c">Вибачте.</div>
+                <div id="ua-11" class="match-item draggable-ua" draggable="true" data-target="en-i">Я люблю тебе.</div>
+            </div>
+            <div class="match-column">
+                <h3>English</h3>
+                <div id="en-k" class="match-item droppable-en">My name is…</div>
+                <div id="en-e" class="match-item droppable-en">How are you?</div>
+                <div id="en-a" class="match-item droppable-en">Goodbye!</div>
+                <div id="en-g" class="match-item droppable-en">No</div>
+                <div id="en-c" class="match-item droppable-en">Hello!</div>
+                <div id="en-f" class="match-item droppable-en">Please / You’re welcome</div>
+                <div id="en-i" class="match-item droppable-en">I love you.</div>
+                <div id="en-b" class="match-item droppable-en">Thank you</div>
+                <div id="en-d" class="match-item droppable-en">Yes</div>
+                <div id="en-l" class="match-item droppable-en">Excuse me / Sorry.</div>
+                <div id="en-h" class="match-item droppable-en">I’m from Brazil</div>
+            </div>
+        </div>
+        <canvas id="match-canvas"></canvas>
+
+        <p>
+            <strong>Ex 2. Fill in the Blanks.</strong> Drag the Ukrainian words to the correct blank spaces in the sentences.
+        </p>
+        <div class="fill-blanks-container">
+            <div class="fill-blanks-words">
+                <div class="fill-blanks-word" draggable="true" data-word="Привіт">Привіт</div>
+                <div class="fill-blanks-word" draggable="true" data-word="Бразилії">Бразилії</div>
+                <div class="fill-blanks-word" draggable="true" data-word="Дякую">Дякую</div>
+                <div class="fill-blanks-word" draggable="true" data-word="справи">Справи</div>
+                <div class="fill-blanks-word" draggable="true" data-word="ласка">Ласка</div>
+                <div class="fill-blanks-word" draggable="true" data-word="Вибачте">Вибачте</div>
+                <div class="fill-blanks-word" draggable="true" data-word="звати">Звати</div>
+                <div class="fill-blanks-word" draggable="true" data-word="побачення">Побачення</div>
+                <div class="fill-blanks-word" draggable="true" data-word="люблю">Люблю</div>
+                <div class="fill-blanks-word" draggable="true" data-word="Так">Так</div>
+            </div>
+            <p class="fill-blanks-sentence" data-correct="Привіт"><span class="fill-blanks-placeholder" data-target="1">______</span>! – Hello!</p>
+            <p class="fill-blanks-sentence" data-correct="справи">Як <span class="fill-blanks-placeholder" data-target="2">______</span>? – How are you?</p>
+            <p class="fill-blanks-sentence" data-correct="звати">Мене <span class="fill-blanks-placeholder" data-target="3">______</span> … – My name is…</p>
+            <p class="fill-blanks-sentence" data-correct="Дякую"><span class="fill-blanks-placeholder" data-target="4">______</span> – Thank you</p>
+            <p class="fill-blanks-sentence" data-correct="ласка">Будь <span class="fill-blanks-placeholder" data-target="5">______</span> – Please</p>
+            <p class="fill-blanks-sentence" data-correct="Так"><span class="fill-blanks-placeholder" data-target="6">______</span> / Ні – Yes / No</p>
+            <p class="fill-blanks-sentence" data-correct="Бразилії">Я з <span class="fill-blanks-placeholder" data-target="7">______</span> – I’m from Brazil</p>
+            <p class="fill-blanks-sentence" data-correct="побачення">До <span class="fill-blanks-placeholder" data-target="8">______</span>!</p>
+            <p class="fill-blanks-sentence" data-correct="Вибачте"><span class="fill-blanks-placeholder" data-target="9">______</span> – Sorry.</p>
+            <p class="fill-blanks-sentence" data-correct="люблю">Я <span class="fill-blanks-placeholder" data-target="10">______</span> тебе. – I love you.</p>
+        </div>
+    </section>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // ----- Вправа 1: З'єднай правильно! -----
+    const matchContainer = document.querySelector('.match-container');
+    const uaItems = Array.from(matchContainer.querySelectorAll('.match-column:first-child .match-item'));
+    const enItems = Array.from(matchContainer.querySelectorAll('.match-column:last-child .match-item'));
+    const matches = {};
+
+    // Правильні відповідності (id українського слова : id англійського слова)
+    const correctMatches = {
+        'ua-1': 'en-c',   // Привіт - Hello!
+        'ua-2': 'en-e',   // Як справи? - How are you?
+        'ua-3': 'en-k',   // Мене звати… - My name is…
+        'ua-4': 'en-b',   // Дякую - Thank you
+        'ua-5': 'en-f',   // Будь ласка - Please / You’re welcome
+        'ua-6': 'en-d',   // Так - Yes
+        'ua-7': 'en-g',   // Ні - No
+        'ua-8': 'en-h',   // Я з Бразилії - I’m from Brazil
+        'ua-9': 'en-a',   // До побачення! - Goodbye!
+        'ua-10': 'en-l',  // Вибачте. - Excuse me / Sorry.
+        'ua-11': 'en-i'   // Я люблю тебе. - I love you.
+    };
+
+    // Перемішування елементів
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    shuffleArray(uaItems);
+    shuffleArray(enItems);
+
+    // Очищення колонок та додавання перемішаних елементів
+    const uaColumn = matchContainer.querySelector('.match-column:first-child');
+    const enColumn = matchContainer.querySelector('.match-column:last-child');
+    uaColumn.innerHTML = '<h3>Ukrainian</h3>';
+    enColumn.innerHTML = '<h3>English</h3>';
+    uaItems.forEach(item => {
+        item.setAttribute('draggable', 'true');
+        item.addEventListener('dragstart', (e) => {
+            draggedItem = e.target;
+            e.dataTransfer.setData('text/plain', e.target.id);
+            item.classList.add('dragging');
+        });
+
+        item.addEventListener('dragend', () => {
+            item.classList.remove('dragging');
+            draggedItem = null;
+        });
+        uaColumn.appendChild(item);
+    });
+
+    enItems.forEach(item => {
+        item.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        item.addEventListener('drop', (e) => {
+            const draggedId = e.dataTransfer.getData('text/plain');
+            const targetId = e.target.id;
+            const draggedElement = document.getElementById(draggedId);
+            const targetElement = e.target;
+
+            if (draggedElement && correctMatches[draggedId] === targetId) {
+                matches[draggedId] = targetId;
+                draggedElement.style.backgroundColor = '#e0f7fa';
+                targetElement.style.backgroundColor = '#e0f7fa';
+                draggedElement.draggable = false;
+            } else if (draggedElement) {
+                draggedElement.style.backgroundColor = '#ffebee';
+                setTimeout(() => draggedElement.style.backgroundColor = '', 500);
+            }
+        });
+        enColumn.appendChild(item);
+    });
+
+   // ----- Вправа 2: Заповни пропуски! -----
+    const wordsContainer = document.querySelector('.fill-blanks-words');
+    const placeholders = document.querySelectorAll('.fill-blanks-placeholder');
+    const placedWords = new Map();
+    let draggedItem = null;
+
+    wordsContainer.querySelectorAll('.fill-blanks-word').forEach(word => {
+        word.setAttribute('draggable', 'true');
+        word.addEventListener('dragstart', (e) => {
+            draggedItem = e.target;
+            e.dataTransfer.setData('text/plain', e.target.dataset.word);
+            word.classList.add('dragging');
+        });
+
+        word.addEventListener('dragend', () => {
+            word.classList.remove('dragging');
+            draggedItem = null;
+        });
+    });
+
+    placeholders.forEach(placeholder => {
+        placeholder.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        placeholder.addEventListener('drop', (e) => {
+            console.log('Drop event triggered on placeholder:', placeholder);
+            console.log('Dragged item:', draggedItem);
+            console.log('Word text:', e.dataTransfer.getData('text/plain'));
+            console.log('Correct word:', placeholder.closest('.fill-blanks-sentence').dataset.correct);
+            console.log('Placeholder text content length:', placeholder.textContent.length); // Додали цей лог
+            console.log('Placeholder text (trimmed):', placeholder.textContent.trim());
+
+            const wordText = e.dataTransfer.getData('text/plain');
+            const correctWord = placeholder.closest('.fill-blanks-sentence').dataset.correct;
+
+            console.log('Comparing Unicode:');
+            for (let i = 0; i < Math.max(wordText.length, correctWord.length); i++) {
+                const wordCharCode = wordText.charCodeAt(i);
+                const correctCharCode = correctWord.charCodeAt(i);
+                console.log(`Index ${i}: Word: ${wordText[i] || ''} (${wordCharCode}), Correct: ${correctWord[i] || ''} (${correctCharCode})`);
+            }
+
+            if (draggedItem) {
+                if (wordText === correctWord && placeholder.textContent.length === 6) { // Використовуємо перевірку довжини
+                    console.log('Correct drop logic executed.');
+                    placeholder.textContent = wordText;
+                    placeholder.classList.add('filled');
+                    placedWords.set(placeholder, draggedItem);
+                    draggedItem.style.display = 'none';
+                    placeholder.dataset.originalWord = draggedItem.dataset.word;
+                } else if (wordText !== correctWord && placeholder.textContent.length === 6) { // І тут також
+                    console.log('Incorrect drop logic executed.');
+                    const originalPosition = { top: draggedItem.offsetTop, left: draggedItem.offsetLeft };
+                    draggedItem.classList.add('incorrect-drop');
+                    setTimeout(() => {
+                        draggedItem.classList.remove('incorrect-drop');
+                        draggedItem.style.top = originalPosition.top + 'px';
+                        draggedItem.style.left = originalPosition.left + 'px';
+                        draggedItem.style.position = 'absolute';
+                        setTimeout(() => {
+                            draggedItem.style.position = 'static';
+                            draggedItem.style.top = '';
+                            draggedItem.style.left = '';
+                        }, 300);
+                    }, 1000);
+                } else {
+                    console.log('Drop condition not met.');
+                }
+            } else {
+                console.log('Dragged item is null.');
+            }
+        });
+
+        placeholder.addEventListener('dragstart', (e) => {
+            if (e.target.classList.contains('filled')) {
+                draggedItem = e.target;
+                e.dataTransfer.setData('text/plain', e.target.dataset.originalWord); // Використовуємо збережене оригінальне слово
+                e.target.textContent = '______';
+                e.target.classList.remove('filled');
+                const originalWord = placedWords.get(e.target);
+                if (originalWord) {
+                    originalWord.style.display = 'inline-block';
+                    placedWords.delete(e.target);
+                    delete e.target.dataset.originalWord; // Очищаємо атрибут
+                }
+            } else {
+                e.preventDefault();
+            }
+        });
+
+        placeholder.addEventListener('dragend', () => {
+            draggedItem = null;
+        });
+    });
+});
+    </script>
+</body>
+</html>
